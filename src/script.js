@@ -40,8 +40,8 @@ const generateGalaxy = () => {
   const positions = new Float32Array(parameters.count * 3);
   const colors = new Float32Array(parameters.count * 3);
 
-  const colorInside = new THREE.Color(parameters.insideColor)
-  const colorOutside = new THREE.Color(parameters.outsideColor)
+  const colorInside = new THREE.Color(parameters.insideColor);
+  const colorOutside = new THREE.Color(parameters.outsideColor);
 
   for (let i = 0; i < parameters.count; i++) {
     const i3 = i * 3;
@@ -67,11 +67,11 @@ const generateGalaxy = () => {
     positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
 
     //COLOR
-    const mixedColor = colorInside.clone()
-    mixedColor.lerp(colorOutside, radius / parameters.radius)
-    colors[i3 + 0] = mixedColor.r
-    colors[i3 + 1] = mixedColor.g
-    colors[i3 + 2] = mixedColor.b
+    const mixedColor = colorInside.clone();
+    mixedColor.lerp(colorOutside, radius / parameters.radius);
+    colors[i3 + 0] = mixedColor.r;
+    colors[i3 + 1] = mixedColor.g;
+    colors[i3 + 2] = mixedColor.b;
   }
 
   geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
